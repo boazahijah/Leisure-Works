@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Ionic App</title>
+
+    <link href="lib/ionic/css/ionic_custom.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <style>
+      body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+  background-color: #dcb505;
+}
+.slider {
+  height: 100%;
+}
+.slider-slide {
+  padding-top: 80px;
+  color: #000;
+  background-color: #dcb505;
+  text-align: center;
+
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+}
+
+#logo {
+  margin: 30px 0px;
+}
+
+#list {
+  width: 170px;
+  margin: 30px auto;
+  font-size: 20px;
+}
+#list ol {
+  margin-top: 30px;
+}
+#list ol li {
+  text-align: left;
+  list-style: decimal;
+  margin: 10px 0px;
+}
+
+    </style>
+  </head>
+
+  <body ng-app="musicapp" animation="slide-left-right-ios7" ng-controller="introController" style="background-color: #dcb505;">
+<!-- 
+    
+<ion-nav-bar class="bar-light">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view></ion-nav-view> -->
+
+
+   
+     
+        <ion-view view-title="">
+        <ion-nav-buttons side="left">
+          <button class="button button-positive button-clear no-animation"
+                  ng-click="startApp()" ng-show="!slideIndex">
+            <font color="white">Skip Intro</font>
+          </button>
+          <button class="button button-positive button-clear no-animation"
+                  ng-click="previous()" ng-show="slideIndex > 0">
+            <font color="white"> Previous </font>
+          </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right"> 
+          <button class="button button-positive button-clear no-animation"
+                  ng-click="next()" ng-show="slideIndex != 2">
+             <font color="white"> Next </font>
+          </button>
+          <button class="button button-positive button-clear no-animation"
+                  ng-click="startApp()" ng-show="slideIndex == 2">
+            <font color="white"> Get Started</font>
+          </button>
+        </ion-nav-buttons>
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+          <ion-slide>
+            <h3>Thank you for choosing the Awesome App!</h3>
+            <div id="logo">
+              <img src="img/appintro.png">
+            </div>
+            <p>
+              We've worked super hard to make you happy.
+            </p>
+            <p>
+              But if you are angry, too bad.
+            </p>
+          </ion-slide>
+          <ion-slide>
+            <h3>Using ChordsNSongs</h3>
+             
+            <div id="list">
+              <h5>Just three steps:</h5>
+              <ol>
+                <li>Pick any of your favourite song.</li>
+                <li>Practise it, with the data provided. </li>
+                <li>Perform it before your loved ones.</li>
+              </ol>
+            </div>
+          </ion-slide>
+          <ion-slide>
+          <div id="logo">
+              <img src="img/introimg5.png" style="width: 50%;height: 50%">
+            </div>
+            <h3>So, Why Wait? Just get started.</h3>
+            <p>
+              Hurray!
+            </p>
+          </ion-slide>
+        </ion-slide-box>
+      </ion-view>
+    
+
+    
+     
+
+</body> 
+</html>
+    <!-- <script id="main.html" type="text/ng-template">
+      <ion-view left-buttons="leftButtons" right-buttons="rightButtons" hide-back-button="true" title="'Awesome'">
+        <ion-content padding="true" has-header="true">
+          <h1>Main app here</h1>
+          <button class="button" ng-click="toIntro()">Do Tutorial Again</button>
+        </ion-content>
+      </ion-view>
+    </script> -->
+<!--     
+  
+

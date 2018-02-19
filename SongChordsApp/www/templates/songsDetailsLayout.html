@@ -1,0 +1,155 @@
+ <ion-view>
+    <ion-nav-title>
+<!-- <h1 class="title"><font color="#E7BD00" style="font-weight: bold;">Chords N Songs</font></h1> 
+ --><!-- <button class="button icon ion-home" ng-click="homeScreen();"></button>
+ -->    
+<img src='img/header1.png' width="90%" align="center" >
+ </ion-nav-title>
+    <ion-nav-bar class="bar bar-dark">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+</ion-nav-bar> 
+<ion-tabs ng-controller="viewSongDetailsController">
+
+    <ion-tab title="Chord Sheet" ng-click="selectTabWithIndex(0)">
+     </ion-tab>
+    <ion-tab title="Ref Chords" ng-click="selectTabWithIndex(1)">
+     </ion-tab>
+<ion-tab title="Ref Videos" ng-click="selectTabWithIndex(2)"></ion-tab>
+</ion-tabs> 
+<ion-content ng-controller="viewSongDetailsController" has-bouncing="true" overflow-scroll="false" style="padding-top: 10%;">
+  <div id="div0" style="display: block;">
+<div class="row responsive-sm">
+        <div class="row responsive-sm">
+        <font style="font-weight: bold;">Note :</font> 
+        </div>
+       <div ng-repeat="tips in songDetails.songTips">
+      <div class="row responsive-sm">
+         <div class="col">
+            <font style="font-size: 8pt;font-weight: bold;"  >{{$index + 1}}.</font> <font style="font-size: 10pt;font-style: italic;" color="#9A7D0A"> {{tips.tip}} </font>
+        </div>
+      </div>
+    </div>
+    <div class="row responsive-sm">
+    <div ng-hide="songDetails.songTips.length"><font style="font-style: italic;">Nothing to display,!</font></div>
+    </div>
+  </div>
+
+<div class="row responsive-sm">
+         <div class="col">
+         <font style="font-weight: bold;">SongName :</font> 
+        </div>
+
+        <div class="col">
+
+         <font color="green" style="font-weight: bold;text-align: left;"> {{songDetails.songname}}</font>
+        </div>
+      </div>
+
+     <div class="row responsive-sm">
+        <div class="col">
+        <font style="font-weight: bold;"> Song Key :</font>
+        </div>
+
+         <div class="col">
+         <font color="green" style="font-weight: bold;">{{songDetails.songkey}}</font>
+        </div>
+      </div>
+
+      <div class="row responsive-sm">
+         <div class="col">
+         <font style="font-weight: bold;"> Pallavi : </font>
+        </div>
+      </div>
+
+  <div ng-repeat="pallavi in songDetails.pallaviDetails">
+      <div class="row responsive-sm">
+        <div class="col">
+          <!-- <font style="font-size: 12pt;"> {{pallavi.pallavilyric}} </font> -->
+          <p style="font-size: 11pt;" ng-bind-html="pallavi.pallavilyric| beautifyChords"></p>
+        </div>
+      </div>
+    </div>
+
+   <div class="row responsive-sm">
+         <div class="col">
+        <font style="font-weight: bold;">  Charanam : </font>
+        </div>
+      </div>
+
+        <div ng-repeat="saranam in songDetails.saranamDetails">
+     <div class="row responsive-sm">
+         <div class="col">
+       <!--  <font style="font-size: 12pt;">  {{saranam.saranamlyric | beautifyChords}}  </font> -->
+
+          <p style="font-size: 11pt;" ng-bind-html="saranam.saranamlyric | beautifyChords"></p>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div id="div1" style="display: none;">
+  <br><br><br>
+
+ <ion-list ng-repeat="chords in songChords">
+   
+        <div class="card list">
+   <div class="item item-divider">
+      <h7>Chord Name : {{chords.chordname}} </h7>
+
+
+   </div>
+   
+   <div class="item item-text-wrap">
+      <img ng-src={{chords.imageData}} alt="" ng-click="openImage(chords.imageData);"> 
+   </div>
+   
+</div>
+    </ion-list>
+</div>
+
+  
+  <div id="div2" style="display: none;">
+    <br><br><br> 
+
+
+    <ion-list ng-repeat="video in songDetails.videodetails">
+          <ion-item>
+                <!-- <div class="video-container">
+                http://img.youtube.com/vi/{{}}/mqdefault.jpg
+                    <iframe ng-src="{{'https://www.youtube.com/embed/' + video.videoid}}" frameborder="0" width="560" height="315" allowfullscreen="allowfullscreen"></iframe>
+                </div> -->
+                <div class="item item-body">
+      <img class="full-image" ng-src="http://img.youtube.com/vi/{{video.videoid}}/mqdefault.jpg" ng-click="externalYoutube(video.videoid);">
+      </div>
+                <div> 
+               <font style="font-weight: bold;">Video Url : </font><input type="text" placeholder="Enter Movie Name" value="{{video.videourl}}" style="width: 100%">
+               <p ng-click="externalYoutube(video.videoid);" style="cursor: pointer">Tap over the image or Here to open via youtube</p>
+                </div>
+            </ion-item>
+        
+    </ion-list>
+  </div>
+
+  </ion-content>
+
+</ion-view>
+
+
+<style>
+  .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 30px; height: 0; overflow: hidden;
+  }
+   
+  .video-container iframe, .video-container object, .video-container embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+</style>
+ 
+   

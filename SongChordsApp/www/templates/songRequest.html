@@ -1,0 +1,31 @@
+<ion-view >
+<ion-nav-title>
+<!-- <h1 class="title"><font color="#E7BD00" style="font-weight: bold;">Chords N Songs</font></h1>  -->
+<img src='img/header1.png' width="90%" align="center">
+<button class="button icon ion-home" ng-click="homeScreen();"></button>
+    </ion-nav-title>
+<div ng-controller="requestSongsController">
+<div class="bar bar-assertive">
+   <div class="bar bar-header bar-assertive">
+<button class="button icon ion-home" ng-click="homeScreen();"></button>
+</div>
+</div>  
+<ion-content has-bouncing="true" overflow-scroll="false" >
+<font style="font-style: italic;"> <div class="item item-divider">Song Request</div></font>
+<div class="list">
+   <label class="item item-input item-stacked-label">
+   <span class="input-label">Song Name</span>
+   <input type="text" placeholder="Enter Song Name" ng-model="songRequest.songname">
+   </label>
+
+   <label class="item item-input item-stacked-label">
+   <span class="input-label">Movie Name</span>
+   <input type="text" placeholder="Enter Movie Name" ng-model="songRequest.moviename">
+   </label>
+</div>
+     <div align="center"> <button class="button" ng-click="validateForm(songRequest.songname,songRequest.moviename);">Submit Request</button> </div>
+   
+
+  </ion-content>
+  </div>
+</ion-view> 

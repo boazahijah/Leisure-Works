@@ -1,0 +1,76 @@
+<div class="main-content">
+  <!--<form #categoryRegForm="ngForm" (ngSubmit)="saveCategory(categoryRegForm)">-->
+  <form>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header" data-background-color="red">
+              <h4 class="title">Push Notifications</h4>
+              <p class="category">Send Push Notification</p>
+            </div>
+            <div class="card-content">
+              <form>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Push Title</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+
+                      <input type="text" name="pushTitle" class="form-control" id="pushTitle">
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Push Message</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <input type="text" name="pushMessage" class="form-control" id="pushMessage">
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Browse Image</label>
+                      <input type="file" name="pushImage" id="pushImage" (change)="fileEvent($event)">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">
+                        <b>{{selectedFileName}}</b>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <button type="button" class="btn btn-danger pull-right" (click)="sendPush()">Save</button>
+
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

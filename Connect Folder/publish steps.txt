@@ -1,0 +1,10 @@
+keytool -genkey -v -keystore my-release-key.keystore -alias chordsandsongs -keyalg RSA -keysize 2048 -validity 10000
+ahijahkoilboaz
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore android-release-unsigned.apk chordsandsongs
+
+ zipalign -v 4 android-release-unsigned.apk ChordsNSongs.apk
+
+
+New Enhancements were done.
+Bugs Were Fixed.
+User interface was improved.

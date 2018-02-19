@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card-panel">
+<h5 class="header">Add Chords Master</h5>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input placeholder="Chord Name" id="chordname" type="text" class="validate" ng-model="chords.chordname">
+          <label>Chord Name</label>
+        </div>
+      
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+         <div class="file-field input-field">
+      <div class="btn">
+        <span>Browse</span>
+        <input type="file" fileread="chords.imageData">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload Chord Image File">
+      </div>
+    </div>
+        </div>
+      </div> 
+
+	<div class="row">
+       <div class="input-field col s12" style="text-align:center">
+          <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addChords();">Submit
+    <i class="material-icons right"></i>
+  </button>
+        </div>
+  </div>
+    </form>
+
+  </div>
+  </div>

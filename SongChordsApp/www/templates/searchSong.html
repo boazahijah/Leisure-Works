@@ -1,0 +1,41 @@
+
+ 
+   <ion-view ng-controller="searchSongController">
+   <ion-nav-title>
+<!-- <h1 class="title"><font color="#E7BD00" style="font-weight: bold;">Chords N Songs</font></h1>  -->
+<img src='img/header1.png' width="90%" align="center" >
+<button class="button icon ion-home" ng-click="homeScreen();"></button>
+    </ion-nav-title>
+ 
+  <!--  <ion-nav-bar class="bar bar-assertive">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+</ion-nav-bar> -->
+<ion-header-bar class="bar-light bar-subheader" >
+      <input type="search"
+             placeholder="Type atleast 3 letters of the song to start search..."
+             ng-model="songname"
+             ng-focus="searchFocused = true"
+             ng-blur="searchFocused = false"
+             ng-change="searchSong(songname,'','');"
+             class="full-width" style="width: 100%;">
+      </ion-header-bar> 
+    <ion-content has-bouncing="true" overflow-scroll="false" >
+<ion-list>
+ <ion-item ng-repeat="song in songsData" 
+                  ng-click="viewSongDetails(song.songName);" class="item item-avatar"  on-hold="onHold(song.songName)">
+                  <img src="img/musicicon3.png">
+          <h3>{{song.songName}}</h3>
+    <h4>{{song.movieName}}</h4>
+    <h4> Song Key : {{song.songKey}}</h4>
+     <h4>Category: {{song.languageName}}</h4>
+        </ion-item>
+
+      </ion-list>
+
+      <div class="row responsive-sm" align="center">
+    <div ng-hide="songsData.length"><font style="font-style: italic;"> No results to display,! </font></div>
+    </div>
+  </ion-content>
+    </ion-view>
+

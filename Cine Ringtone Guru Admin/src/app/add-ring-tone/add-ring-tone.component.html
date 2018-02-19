@@ -1,0 +1,104 @@
+<div class="main-content">
+  <!--<form #categoryRegForm="ngForm" (ngSubmit)="saveCategory(categoryRegForm)">-->
+  <form>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header" data-background-color="red">
+              <h4 class="title">Add RingTones</h4>
+              <p class="category">Add ringtones inside category</p>
+            </div>
+            <div class="card-content">
+              <form>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Category Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <select class="form-control" name="categoryName" id="categoryName" #subCategoryid (change)="loadSubCategories(subCategoryid.value);">
+                       <option [value]="Select" >Select</option>
+                        <option *ngFor="let category of parentCategory" [value]="category.categoryName">{{category.categoryName}}</option>
+                    </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Sub Category Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <select class="form-control" name="subCategoryName" id="subCategoryName">
+                        <option *ngFor="let subcategory of subCategory" [value]="subcategory.subCategoryName">{{subcategory.subCategoryName}}</option>
+                    </select>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Browse Ringtone</label>
+                      <input type="file" name="ringTone" id="ringTone" (change)="fileEvent($event)">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label"> <b>{{selectedFileName}}</b></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Search KeyWords</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <input type="text" name="ringKeyWords" class="form-control" id="ringKeyWords">
+                    </div>
+                  </div>
+                </div>
+
+                <!--
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <label class="control-label">Preview Ringtone</label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group form-black label-floating is-empty">
+                      <audio controls>
+                        <source type="audio/mpeg" src="file:///C://Users//Boaz//Desktop//backup_12-09-17//jinglebells.mp3">
+                      </audio>
+                    </div>
+                  </div>
+                </div>-->
+
+                <button type="button" class="btn btn-danger pull-right" (click)="uploadRingTone()">Save</button>
+
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

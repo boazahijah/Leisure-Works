@@ -1,0 +1,85 @@
+<div class="main-content">
+  <!--<form #categoryRegForm="ngForm" (ngSubmit)="saveCategory(categoryRegForm)">-->
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">Sub Category</h4>
+            <p class="category">Add Sub Category</p>
+          </div>
+          <div class="card-content">
+            <form>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Parent Category Name</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <select class="form-control" name="categoryName" id="categoryName" [(ngModel)]="categoryName">
+                        <option *ngFor="let category of parentCategory" [value]="category.categoryName">{{category.categoryName}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Sub Category Name</label>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <input type="text" name="categoryName" class="form-control" [(ngModel)]="subCategory.subCategoryName">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Browse Image</label>
+                    <input type="file" name="subCategoryImage" (change)="fileEvent($event)" multiple>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label"> <b>{{selectedFileName}}</b></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group form-black label-floating is-empty">
+                    <label class="control-label">Sub Category Description</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <div class="form-group form-black label-floating is-empty">
+                      <textarea class="form-control" rows="5" name="subCategoryDescription" [(ngModel)]="subCategory.subCategoryDescription"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-danger pull-right" (click)="saveSubCategory()">Save</button>
+              <div class="clearfix"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--</form>-->
+</div>

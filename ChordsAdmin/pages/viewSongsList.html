@@ -1,0 +1,94 @@
+<div data-ng-controller="viewSongsController" data-ng-init="loadSongsDetails()" class="container" >
+
+<table class="highlight" >
+        <thead>
+          <tr>
+              <th data-field="languagename">Language Name</th>
+              <th data-field="songname">Song Name</th>
+              <th data-field="moviename">Movie Name</th>
+			        <th data-field="view">View</th>
+              <th data-field="view">Edit</th>
+              <!-- <th data-field="image">Image</th> -->
+               <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="songdata in songsData">
+	        <td>{{songdata.languageName}}</th>
+	        <td>{{songdata.songName}}</td>
+	         <td>{{songdata.movieName}}</td>
+	          <td>{{songdata.songKey}}</td>
+            <td><a ng-click="viewSongDetails(songdata.songName);"> View Song Details</a></td>
+            <td><a ng-click="editSongDetails(songdata.songName);">Edit Song Details</a></td>
+	        <!-- <td><img src="img/view.png" style="width: 10%;height: 20%;" ng-click="viewImage(songdata._id);"></td> -->
+	         <td><img src="img/remove3.png" style="width: 5%;height: 10%;" ></td>
+   		 </tr>
+		</tbody>
+      </table>
+
+
+   
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+    <!--  <img ng-src="{{ imageData }}" /> -->
+    <div class="row">
+        <div class="input-field col s2">
+          SongName :
+        </div>
+
+        <div class="input-field col s4  ">
+          {{songDetails.songname}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s2">
+         Song Key :
+        </div>
+
+        <div class="input-field col s2">
+         {{songDetails.songkey}}
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s3">
+          Charanam : 
+        </div>
+      </div>
+
+      <div ng-repeat="pallavi in songDetails.pallaviDetails">
+      <div class="row">
+        <div class="input-field col s12">
+          {{pallavi.pallavilyric}}
+        </div>
+      </div>
+</div>
+       <div class="row">
+        <div class="input-field col s3">
+          Pallavi : 
+        </div>
+      </div>
+
+      <div ng-repeat="saranam in songDetails.saranamDetails">
+      <div class="row">
+        <div class="input-field col s12">
+          {{saranam.saranamlyric}}
+        </div>
+      </div>
+
+      </div>
+  
+    <div class="modal-footer">
+     
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+	
+
+</script>

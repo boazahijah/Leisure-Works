@@ -1,0 +1,19 @@
+{
+  "name": "chordsapp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Play songs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "boaz ahijah",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "mongoose": "^4.4.12",
+    "node-restful": "^0.2.5",
+    "nodemon": "^1.9.1"
+  }
+}

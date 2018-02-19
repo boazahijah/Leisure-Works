@@ -1,0 +1,44 @@
+<div class="container" data-ng-init="loadLanguageDetails()">
+    <div class="card-panel">
+        <h5 class="header">Add Songs</h5>
+
+
+        <form class="col s12">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Push title" id="push_title" type="text" class="validate" ng-model="pushForm.pushTitle">
+                    <label for="first_name">Push Title</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input placeholder="Push Desc" id="push_desc" type="text" class="validate" ng-model="pushForm.pushDesc">
+                    <label for="first_name">Push Description</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <label>Select Push Type</label>
+                    <br>
+                    <br>
+                    <select class="browser-default" ng-model="pushForm.pushType">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="button">Button</option>
+                        <option value="normal">Normal</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12" style="text-align:center">
+                    <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="sendPush();">Push
+                        <i class="material-icons right"></i>
+                    </button>
+                </div>
+            </div>
+
+
+
+        </form>
+    </div>
+</div>

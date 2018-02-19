@@ -1,0 +1,32 @@
+<div data-ng-controller="chordsMasterController"  class="container" >
+
+<table class="highlight" >
+        <thead>
+          <tr>
+              <th data-field="chordsName">Chords Name</th>
+            <!--   <th data-field="songname">Song Name</th>
+              <th data-field="moviename">Movie Name</th>
+			        <th data-field="view">View</th>
+              <th data-field="view">Edit</th> -->
+              <!-- <th data-field="image">Image</th> -->
+               <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="chordsdata in chordsdata">
+	        <td>{{chordsdata.chordname}}</th>
+	       <!--  <td>{{songdata.songName}}</td>
+	         <td>{{songdata.movieName}}</td>
+	          <td>{{songdata.songKey}}</td>
+            <td><a ng-click="viewSongDetails(songdata.songName);"> View Song Details</a></td>
+            <td><a ng-click="editSongDetails(songdata.songName);">Edit Song Details</a></td>
+	        <td><img src="img/view.png" style="width: 10%;height: 20%;" ng-click="viewImage(songdata._id);"></td> -->
+	        <!--  <td><img src="img/remove3.png" style="width: 5%;height: 10%;" ></td> --> 
+   		 </tr>
+		</tbody>
+      </table>
+
+
+</div>
+

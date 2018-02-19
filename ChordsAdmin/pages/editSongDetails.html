@@ -1,0 +1,156 @@
+<div class="container">
+    <div class="card-panel">
+<h5 class="header">Edit Song Chords and Lyrics</h5>
+
+
+    <form class="col s12">
+ <div class="row">
+          
+
+<div class="input-field col s6">
+   <label>Movie Name</label><br><br>
+  <select class="browser-default" ng-rep ng-model="songForm.languagename" ng-change="loadSongs(songForm.languagename);">
+  <option value="" disabled selected>Choose your option</option>
+   <option ng-repeat="language in languageDetails" value="{{language.languagename}}">{{language.languagename}}</option>
+  </select>
+</div>
+<div class="input-field col s6">
+  <label>Song Name</label><br><br>
+  <select class="browser-default" ng-model="songForm.songname">
+    <option value="" disabled selected>Choose your option</option>
+      <option ng-repeat="song in songNames" value="{{song.songName}}">{{song.songName}}</option>
+  </select>
+  </div>
+
+  </div>
+   <div class="row"  >
+   <div class="input-field col s12">
+              <input placeholder="Song Key" id="first_name" type="text" class="validate" ng-model="songForm.songkey">
+              <label for="first_name">Song Key</label>
+            </div>
+            </div>
+
+ <p class="flow-text">Pallavi </p>
+ <div class="row">
+      <div data-ng-repeat="lines in songForm.pallaviDetails">
+        <div class="input-field col s11">
+          <input placeholder="Pallavi Line {{$index + 1}}" id="songlyric" ng-model="lines.pallavilyric" type="text" class="validate">
+          <label for="first_name">Pallavi Line {{$index + 1}}</label>
+        </div>
+      <div class="input-field col s1">        
+          <label style="padding-top: 15px"><a href="" ng-click="remove_pallavi($index)"><img src="img/remove.png" style="width: 35%;height: 35%;"></a></label>
+        </div></div>
+        <div class="input-field col s1">
+          <label><a href="" ng-click="add_pallavi()"><img src="img/add.png" style="width: 35%;height: 35%;"></a></label>
+        </div>
+        
+      </div>
+
+<br>
+ <p class="flow-text">Saranam Lyrics</p>
+ <div class="row">
+      <div data-ng-repeat="lines in songForm.saranamDetails">
+        <div class="input-field col s11">
+          <input placeholder="Saranam Line {{$index + 1}}" id="songlyric" ng-model="lines.saranamlyric" type="text" class="validate">
+          <label for="first_name">Saranam Line {{$index + 1}}</label>
+        </div>
+        <div class="input-field col s1">        
+          <label style="padding-top: 15px"><a href="" ng-click="remove_saranam($index)"><img src="img/remove.png" style="width: 35%;height: 35%;"></a></label>
+        </div> 
+        </div>
+        <div class="input-field col s1">
+          <label><a href="" ng-click="add_saranam()"><img src="img/add.png" style="width: 35%;height: 35%;"></a></label>
+        </div>
+      </div>
+
+      <br>
+
+
+
+      <p class="flow-text">Notes for Songs</p>
+      <div class="row">
+      <div data-ng-repeat="notes in songForm.songTips">
+        <div class="input-field col s11">
+          <input placeholder="Tip No{{$index + 1}}" id="tips" ng-model="notes.tip" type="text" class="validate">
+          <label for="first_name">Tip No{{$index + 1}}</label>
+        </div>
+        <div class="input-field col s1">        
+          <label style="padding-top: 15px"><a href="" ng-click="remove_note($index)"><img src="img/remove.png" style="width: 35%;height: 35%;"></a></label>
+        </div></div>
+        <div class="input-field col s1">
+          <label><a href="" ng-click="add_note()"><img src="img/add.png" style="width: 35%;height: 35%;"></a></label>
+        </div>
+        
+      </div>
+
+      <br>
+
+
+ <p class="flow-text">Related Song Videos</p>
+ <div class="row">
+      <div data-ng-repeat="lines in songForm.videodetails">
+        <div class="input-field col s2">
+          <input placeholder="video id" id="songlyric" ng-model="lines.videoid" type="text" class="validate">
+          <label for="first_name"></label>
+        </div>
+
+        <div class="input-field col s2">
+          <input placeholder="video url" id="songlyric" ng-model="lines.videourl" type="text" class="validate">
+          <label for="first_name"></label>
+        </div>
+
+        <div class="input-field col s2">
+          <input placeholder="video title" id="songlyric" ng-model="lines.videotitle" type="text" class="validate">
+          <label for="first_name"></label>
+        </div>
+
+        <div class="input-field col s2">
+          <input placeholder="video duration" id="songlyric" ng-model="lines.videoduration" type="text" class="validate">
+          <label for="first_name"></label>
+        </div>
+       
+       <div class="input-field col s2">
+          <input placeholder="video views" id="songlyric" ng-model="lines.videoviews" type="text" class="validate">
+          <label for="first_name"></label>
+        </div>
+        <div class="input-field col s1">
+          <input placeholder="video likes" id="songlyric" ng-model="lines.videolikes" type="text" class="validate">
+          <label for="first_name"></label>
+        </div>
+        <div class="input-field col s1">        
+          <label style="padding-top: 15px"><a href="" ng-click="remove_video($index)"><img src="img/remove.png" style="width: 35%;height: 35%;"></a></label>
+        </div>
+        </div>
+        <div class="input-field col s1">
+          <label><a href="" ng-click="add_video()"><img src="img/add.png" style="width: 35%;height: 35%;"></a></label>
+        </div>
+        
+      </div>
+
+
+<div class="row">
+          
+
+<div class="input-field col s12">
+   <label>Send Notification</label><br><br>
+  <select class="browser-default" ng-rep ng-model="notification">
+  <option value="" disabled selected>Choose your option</option>
+   <option value="yes">yes</option>
+   <option value="no">no</option>
+  </select>
+</div>
+</div>
+
+
+
+     <div class="row">
+       <div class="input-field col s12" style="text-align:center">
+          <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="updateSongDetails()">Submit
+    <i class="material-icons right"></i>
+  </button>
+        </div>
+  </div>
+    
+    </form>
+</div>
+</div>

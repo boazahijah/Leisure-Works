@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="card-panel">
+<h5 class="header">Map Chords To Songs</h5>
+
+
+    <form class="col s12">
+ <div class="row">
+          
+
+<div class="input-field col s6">
+   <label>Movie Name</label><br><br>
+  <select class="browser-default" ng-rep ng-model="songForm.languagename" ng-change="loadSongs(songForm.languagename);">
+  <option value="" disabled selected>Choose your option</option>
+   <option ng-repeat="language in languageDetails" value="{{language.languagename}}">{{language.languagename}}</option>
+  </select>
+</div>
+<div class="input-field col s6">
+  <label>Song Name</label><br><br>
+  <select class="browser-default" ng-model="songForm.songname">
+    <option value="" disabled selected>Choose your option</option>
+      <option ng-repeat="song in songNames" value="{{song.songName}}">{{song.songName}}</option>
+  </select>
+  </div>
+
+  </div>
+  
+
+ <p class="flow-text">Chords</p>
+  <div class="row">
+      <div data-ng-repeat="lines in songForm.chordDetails">
+        <div class="input-field col s11">
+          <label>Chord No {{$index + 1}}</label><br><br>
+          <select class="browser-default" ng-model="lines.chordname">
+    <option value="" disabled selected>Choose your option</option>
+      <option ng-repeat="chords in chordsdata" value="{{chords.chordname}}">{{chords.chordname}}</option>
+  </select>
+          
+        </div>
+     
+      <div class="input-field col s1">        
+          <label style="padding-top:45px"><a href="" ng-click="removeRow($index)"><img src="img/remove.png" style="width: 35%;height: 35%;"></a></label>
+        </div>
+        </div>
+        <div class="input-field col s1">
+          <label style="padding-top:30px"><a href="" ng-click="addNewRow()"><img src="img/add.png" style="width: 35%;height: 35%;"></a></label>
+        </div></div>
+     
+<br>
+
+     <div class="row">
+       <div class="input-field col s12" style="text-align:center">
+          <button class="btn waves-effect waves-light" type="submit" name="action" ng-click="addChordDetails();">Submit
+    <i class="material-icons right"></i>
+  </button>
+        </div>
+  </div>
+    
+    </form>
+</div>
+</div>
+

@@ -1,0 +1,24 @@
+
+<ion-view >
+<ion-nav-title>
+<!-- <h1 class="title" align-title="center"><font color="#E7BD00" style="font-weight: bold;"> -->
+<!-- Chords N Songs -->
+<img src='img/header1.png' width="85%" align="center">
+<!-- </font></h1>  -->
+<button class="button icon ion-home" ng-click="homeScreen();"></button>
+    </ion-nav-title>
+<div ng-controller="viewLanguageController">
+<ion-content has-bouncing="true" overflow-scroll="false" >
+<div>
+<div class="list list-inset" ng-repeat = "language in languageData">
+   <div class="item item-avatar" ng-click="viewCategory(language.languagename);"> 
+    <img ng-src="{{language.imageData}}">
+    <h3>{{language.languagename}}</h3>
+    <h4>{{language.description}}</h4>
+   </div>
+  </div>
+</div>
+</ion-content>
+  </div>
+</ion-view> 
+

@@ -1,0 +1,71 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">List RingTones</h4>
+            <p class="category">The list of Ringtones </p>
+          </div>
+          <div class="card-content table-responsive">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group form-black label-floating is-empty  text-danger">
+                  <label class="control-label">Category Name</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group form-black label-floating is-empty">
+                  <select class="form-control" name="categoryName" id="categoryName" [(ngModel)]="categoryName">
+                        <option *ngFor="let category of parentCategory" [value]="category.categoryName">{{category.categoryName}}</option>
+                    </select>
+                </div>
+              </div>
+              <button type="button" class="btn btn-danger pull-right" (click)="loadRingtones()">List Ringtones</button>
+            </div>
+
+            <table class="table">
+              <thead class="text-danger">
+                <tr>
+                  <th>Parent Category Name</th>
+                  <th>Sub Category Name</th>
+                  <th>RingTone File Name</th>
+                  <th>Preview</th>
+                  <th>Hits</th>
+                  <th>Search Keywords</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ring of ringTones">
+                  <td>{{ ring.categoryName}}</td>
+                  <td>{{ ring.subCategoryName}}</td>
+                  <td>{{ ring.ringToneName}}</td>
+                  <td>
+                    <audio controls>
+                      <source type="audio/mpeg" src="{{ring.serverPath}}">
+                    </audio>
+
+                  </td>
+                  <td>
+                    {{ ring.hits}}
+                  </td>
+                  <td>
+                    {{ ring.ringKeyWords}}
+                  </td>
+                  <td class="text-danger">
+                    <i style="cursor: pointer;" class="material-icons" (click)='deleteCategory(category._id,category.categoryName,category.subCategoryName);'>delete</i>
+                    <i style="cursor: pointer;" class="material-icons">edit</i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

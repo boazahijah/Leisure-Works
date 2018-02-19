@@ -1,0 +1,63 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">List Sub category</h4>
+            <p class="category">The list of Sub Categories</p>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group form-black label-floating is-empty  text-danger">
+                <label class="control-label">Category Name</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group form-black label-floating is-empty">
+                <select class="form-control" name="categoryName" id="categoryName" [(ngModel)]="categoryName">
+                        <option *ngFor="let category of parentCategory" [value]="category.categoryName">{{category.categoryName}}</option>
+                    </select>
+              </div>
+            </div>
+            <button type="button" class="btn btn-danger pull-right" (click)="loadSubCategories()">List Ringtones</button>
+          </div>
+          <div class="card-content table-responsive">
+            <table class="table">
+              <thead class="text-danger">
+                <tr>
+                  <th>Parent Category Name</th>
+                  <th>Sub Category Name</th>
+                  <th>Sub Category Description</th>
+                  <th>Sub Category Image</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let category of subCategory">
+                  <td>{{ category.categoryName}}</td>
+                  <td>{{ category.subCategoryName}}</td>
+                  <td>{{ category.subCategoryDescription}}</td>
+                  <td>
+                    <!--{{ category.categoryImage}}-->
+                    <div class="card-avatar">
+                      <a href="#pablo">
+                        <img class="img" [src]="'data:image/jpg;base64,'+ category.subCategoryImage" />
+                      </a>
+                    </div>
+
+                  </td>
+                  <td class="text-danger">
+                    <i style="cursor: pointer;" class="material-icons" (click)='deleteSubCategory(category._id,category.categoryName,category.subCategoryName);'>delete</i>
+                    <i style="cursor: pointer;" class="material-icons">edit</i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

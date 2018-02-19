@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+<body ng-app="musicapp" style="background-color: white;" >
+<ion-view >
+   <ion-nav-title>
+<!-- <h1 class="title"><font color="#E7BD00" style="font-weight: bold;">Chords N Songs</font></h1>  -->
+<img src='img/header1.png' width="90%" align="center">
+<button class="button icon ion-home" ng-click="homeScreen();"></button>
+    </ion-nav-title>
+  <ion-content has-bouncing="true" no-tap-scroll="true" overflow-scroll="false" ng-controller='viewSongsController'>
+<ion-list >
+ <font style="font-style: italic;"> <div class="item item-divider">{{languageName}}</div></font>
+       <ion-item ng-repeat="song in songsData" 
+                  ng-click="viewSongDetails(song.songName);" class="item item-avatar" on-hold="onHold(song.songName)" >
+                  <img src="img/musicicon3.png">
+          <h3>{{song.songName}}</h3>
+    <h4>{{song.movieName}}</h4>
+    <h4> Song Key : {{song.songKey}}</h4>
+        </ion-item>
+ 
+      </ion-list>
+
+      <ion-infinite-scroll immediate-check="false" ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="30%"></ion-infinite-scroll>
+       <div class="row responsive-sm">
+    <div ng-hide="songsData.length" align="center"><font style="font-style: italic;" >No Songs found in this category,!</font></div>
+    </div>
+   
+ </ion-content>
+    </ion-view>
+
+  </body>
+</html>

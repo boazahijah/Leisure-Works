@@ -1,0 +1,46 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" data-background-color="red">
+            <h4 class="title">List Parent category</h4>
+            <p class="category">The list of Ringtone Categories</p>
+          </div>
+          <div class="card-content table-responsive">
+            <table class="table">
+              <thead class="text-danger">
+                <tr>
+                  <th>Category Name</th>
+                  <th>Category Description</th>
+                  <th>Category Image</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let category of parentCategory">
+                  <td>{{ category.categoryName}}</td>
+                  <td>{{ category.categoryDescription}}</td>
+                  <td>
+                    <!--{{ category.categoryImage}}-->
+                    <div class="card-avatar">
+                      <a href="#pablo">
+                        <img class="img" [src]="'data:image/jpg;base64,'+ category.categoryImage" />
+                      </a>
+                    </div>
+
+                  </td>
+                  <td class="text-danger">
+                    <i style="cursor: pointer;" class="material-icons" (click)='deleteCategory(category._id,category.categoryName);'>delete</i>
+                    <i style="cursor: pointer;" class="material-icons">edit</i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

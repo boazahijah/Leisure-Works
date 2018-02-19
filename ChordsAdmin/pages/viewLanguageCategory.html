@@ -1,0 +1,36 @@
+<div data-ng-controller="viewLanguageController" data-ng-init="viewLanguage()" class="container" >
+
+<table class="highlight centered">
+        <thead>
+          <tr>
+              <th>S.No</th>
+              <th data-field="languagename">Language Name</th>
+              <th data-field="languagedesc">Language Description</th>
+              <th data-field="image">Image</th>
+              <th>Action</th>
+             
+          </tr>
+          <tr><input type="text" ng-model="search" /></tr>
+        </thead>
+
+        <tbody>
+        <tr ng-repeat="langdata in languageData | filter:search">
+          <td>{{$index+1}}</td>
+	        <td>{{langdata.languagename}}</td>
+	        <td>{{langdata.description}}</td>
+	        <td><img ng-src="{{ langdata.imageData }}" style="width:80px;height:80px;"></td>
+          <td>
+          <a href="" ng-click="lang_edit(langdata.languagename)">
+          <img src="img/edit1.png" style="width: 10%;height: 10%;">
+          </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="" ng-click="lang_delete(langdata.languagename)">
+          <img src="img/delete1.png" style="width: 10%;height: 10%;">
+          </a>
+          </td>
+         
+   		 </tr>
+		</tbody>
+      </table>
+
+
+</div>
